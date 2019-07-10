@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import ModalDiff from './components/modals/DifficultyModal'
+import Header from './header/Header'
+import Game from './components/Game'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    state = {
+        numCards: 0,
+        level: -1
+    }
+
+    changeDiff = () => {
+        this.setState({
+            level: -1
+        })
+    }
+
+    pickLevel = (event) => {
+        const {id} = event.target
+        if (id === "easy") {
+            this.setState({
+                numCards: 12,
+                level: 0
+            })
+        } else if (id === "med") {
+            this.setState({
+                numCards: 20,
+                level: 1
+            })
+        } else if (id === "hard") {
+            this.setState({
+                numCards: 28,
+                level: 2
+            })
+        }
+    }
+
+    renderLevelChoice() {
+        return (
+            <ModalDiff
+                show={true}
+                close={this.closeModalHandler}
+                pickLevel={this.pickLevel}
+            />
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                <Header />
+                {this.state.level === -1 ? this.renderLevelChoice() : 
+                    <Game numCards={this.state.numCards} changeDiff={this.changeDiff} />
+                }
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App
