@@ -6,11 +6,22 @@ body {
 .grid-container {
     display: grid;
     grid-gap: 15px;
-    grid-template-columns: 100px 100px 100px 100px;
     align-items: center;
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.easy {
+    grid-template-columns: 100px 100px 100px;
+}
+
+.medium {
+    grid-template-columns: 100px 100px 100px 100px 100px 100px;
+}
+
+.hard {
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
 }
 
 .page-container {
@@ -24,8 +35,6 @@ body {
 
 .grid-header-container {
     display: grid;
-    /* grid-template-columns: auto auto auto; */
-    /* background-color: #c9d1f5; */
     background-color: gray;
     padding: 10px;
     justify-content: center;
@@ -61,7 +70,6 @@ h2, p, button {
     border-radius: 15px;
     border: black;
     margin: 0;
-    /* transition-duration: 2s; */
     animation-name: shrink;
     animation-fill-mode: forwards;
     animation-duration: .5s;
@@ -77,9 +85,7 @@ h2, p, button {
 }
 
 .card-back {
-    /* transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transition-duration: 2s; */
+    pointer-events: none;
     animation-name: grow;
     animation-fill-mode: forwards;
     animation-duration: .5s;

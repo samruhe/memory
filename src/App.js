@@ -6,7 +6,8 @@ import Game from './components/Game'
 class App extends React.Component {
     state = {
         numCards: 0,
-        level: -1
+        level: -1,
+        numColumns: 4
     }
 
     changeDiff = () => {
@@ -20,17 +21,20 @@ class App extends React.Component {
         if (id === "easy") {
             this.setState({
                 numCards: 12,
-                level: 0
+                level: 0,
+                numColumns: 4
             })
         } else if (id === "med") {
             this.setState({
-                numCards: 20,
-                level: 1
+                numCards: 24,
+                level: 1,
+                numColumns: 6
             })
         } else if (id === "hard") {
             this.setState({
-                numCards: 28,
-                level: 2
+                numCards: 32,
+                level: 2,
+                numColumns: 8
             })
         }
     }
@@ -50,7 +54,7 @@ class App extends React.Component {
             <div>
                 <Header />
                 {this.state.level === -1 ? this.renderLevelChoice() : 
-                    <Game numCards={this.state.numCards} changeDiff={this.changeDiff} />
+                    <Game numCards={this.state.numCards} changeDiff={this.changeDiff} numCols={this.state.numColumns} />
                 }
             </div>
         )

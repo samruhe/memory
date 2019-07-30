@@ -25,13 +25,13 @@ class Game extends React.Component {
             return ['#0027F5', '#D53377', '#82F94E', '#F19135', '#EA3EE5', '#832EDF'].reduce((preValue, current, index, array) => {
                 return preValue.concat([current, current])
             }, [])
-        } else if (numCards === 20) {
-            return ['#0027F5', '#D53377', '#82F94E', '#F19135', '#EA3EE5', '#832EDF', '#EB4526', '#75FAB1', '#5FD5FA', '#E8E14C'].reduce((preValue, current, index, array) => {
+        } else if (numCards === 24) {
+            return ['#0027F5', '#D53377', '#82F94E', '#F19135', '#EA3EE5', '#832EDF', '#EB4526', '#75FAB1', '#5FD5FA', '#E8E14C', '#D1AAF9', '#F8FDB6'].reduce((preValue, current, index, array) => {
                 return preValue.concat([current, current])
             }, [])
-        } else if (numCards === 28) {
-            //        blue      fuchsia     green      orange    pink       purple      red        seagreen  skyblue    yellow     baby pink  baby yel   baby purp   coral
-            return ['#0027F5', '#D53377', '#82F94E', '#F19135', '#EA3EE5', '#832EDF', '#EB4526', '#75FAB1', '#5FD5FA', '#E8E14C', '#D1AAF9', '#F8FDB6', '#9A99F8', '#EF7E72'].reduce((preValue, current, index, array) => {
+        } else if (numCards === 32) {
+            //        blue      fuchsia     green      orange    pink       purple      red        seagreen  skyblue    yellow     baby pink  baby yel   baby purp   coral    teal green  teal
+            return ['#0027F5', '#D53377', '#82F94E', '#F19135', '#EA3EE5', '#832EDF', '#EB4526', '#75FAB1', '#5FD5FA', '#E8E14C', '#D1AAF9', '#F8FDB6', '#9A99F8', '#EF7E72', '#0CE87D', '#0CE8C8'].reduce((preValue, current, index, array) => {
                 return preValue.concat([current, current])
             }, [])
         }
@@ -40,7 +40,7 @@ class Game extends React.Component {
     handleClick = (event) => {
         event.preventDefault()
         var start = ""
-        if (!this.state.timerStarted) {
+        if (!this.state.timerStarted) {   // get current time when first Card clicked
             start = new Date().getTime()
             this.setState({
                 timeStart: start,
@@ -151,10 +151,19 @@ class Game extends React.Component {
             styles = {}
         }
 
+        var classN = ""
+        if (this.props.numCols === 4) {
+            classN = "grid-container easy"
+        } else if (this.props.numCols === 6) {
+            classN = "grid-container medium"
+        } else if (this.props.numCols === 8) {
+            classN = "grid-container hard"
+        }
+
         return (
             <div className="page-container">
                 <div>
-                    <div className="grid-container" style={styles}>
+                    <div className={classN} style={styles}>
                         {
                             this.state.shuffledCard.map((cardNumber, index) =>
                             <Card
