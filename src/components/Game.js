@@ -30,8 +30,8 @@ class Game extends React.Component {
                 return preValue.concat([current, current])
             }, [])
         } else if (numCards === 32) {
-            //        blue      fuchsia     green      orange    pink       purple      red        seagreen  skyblue    yellow     baby pink  baby yel   baby purp   coral    teal green  teal
-            return ['#0027F5', '#D53377', '#82F94E', '#F19135', '#EA3EE5', '#832EDF', '#EB4526', '#75FAB1', '#5FD5FA', '#E8E14C', '#D1AAF9', '#F8FDB6', '#9A99F8', '#EF7E72', '#0CE87D', '#0CE8C8'].reduce((preValue, current, index, array) => {
+            //        blue      fuchsia     green      orange    pink       purple      red        seagreen  skyblue    yellow     baby pink  baby yel   baby purp   coral    lime yel    rust
+            return ['#0027F5', '#D53377', '#82F94E', '#F19135', '#EA3EE5', '#832EDF', '#EB4526', '#75FAB1', '#5FD5FA', '#E8E14C', '#D1AAF9', '#F8FDB6', '#9A99F8', '#EF7E72', '#C8FF17', '#E8770C'].reduce((preValue, current, index, array) => {
                 return preValue.concat([current, current])
             }, [])
         }
