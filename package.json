@@ -2,7 +2,7 @@
   "name": "memory",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://samruhe.github.io/Memory",
+  "homepage": "https://samruhe.github.io/memory",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
